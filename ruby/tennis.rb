@@ -33,14 +33,7 @@ class TennisGame1
         result ="Win for player2"
       end
     else
-      (1..2).each do |i|
-        if (i==1)
-          result += to_result(@p1points)
-        else
-          result+="-"
-          result += to_result(@p2points)
-        end
-      end
+      result = to_result(@p1points) + "-" + to_result(@p2points)
     end
     result
   end
