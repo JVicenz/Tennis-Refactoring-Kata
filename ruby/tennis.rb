@@ -35,20 +35,23 @@ class TennisGame1
     else
       (1..2).each do |i|
         if (i==1)
-          tempScore = @p1points
+          result += to_result(@p1points)
         else
           result+="-"
-          tempScore = @p2points
+          result += to_result(@p2points)
         end
-        result += {
-            0 => "Love",
-            1 => "Fifteen",
-            2 => "Thirty",
-            3 => "Forty",
-        }[tempScore]
       end
     end
     result
+  end
+
+  def to_result(point_score)
+    {
+      0 => "Love",
+      1 => "Fifteen",
+      2 => "Thirty",
+      3 => "Forty",
+    }[point_score]
   end
 end
 
