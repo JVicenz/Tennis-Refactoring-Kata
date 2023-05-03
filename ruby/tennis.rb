@@ -15,7 +15,7 @@ class TennisGame1
   def score
     result = ""
     tempScore=0
-    if (@p1points==@p2points)
+    if (point_difference == 0)
       result = {
           0 => "Love-All",
           1 => "Fifteen-All",
@@ -30,7 +30,6 @@ class TennisGame1
   end
 
   def advantage_or_win
-    point_difference = @p1points-@p2points
     if (point_difference==1)
       result ="Advantage player1"
     elsif (point_difference ==-1)
@@ -40,6 +39,10 @@ class TennisGame1
     else
       result ="Win for player2"
     end
+  end
+
+  def point_difference
+    @p1points-@p2points
   end
 
   def to_result(point_score)
