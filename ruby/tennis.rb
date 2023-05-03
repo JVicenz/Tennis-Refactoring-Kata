@@ -25,15 +25,17 @@ class TennisGame1
   end
 
   def advantage_or_win
-    if (point_difference==1)
-      result ="Advantage player1"
-    elsif (point_difference ==-1)
-      result ="Advantage player2"
+    if (point_difference.abs == 1)
+      result = advantage
     elsif (point_difference>=2)
       result = "Win for player1"
     else
       result ="Win for player2"
     end
+  end
+
+  def advantage
+    result = point_difference == 1 ? "Advantage player1" : "Advantage player2"
   end
 
   def point_difference
