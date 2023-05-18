@@ -15,13 +15,9 @@ class TennisGame1
   def score
     result = ""
     return "Deuce" if duce?
-    if (point_difference == 0)
-      result = tied_result
-    elsif (advantage_or_win?)
-      result = advantage_or_win
-    else
-      result = to_result(@p1points) + "-" + to_result(@p2points)
-    end
+    return advantage_or_win if advantage_or_win?
+    return tied_result if point_difference == 0
+    result = to_result(@p1points) + "-" + to_result(@p2points)
     result
   end
 
