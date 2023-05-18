@@ -17,7 +17,7 @@ class TennisGame1
     return "Deuce" if duce?
     if (point_difference == 0)
       result = tied_result
-    elsif (@p1points>=4 or @p2points>=4)
+    elsif (advantage_or_win?)
       result = advantage_or_win
     else
       result = to_result(@p1points) + "-" + to_result(@p2points)
@@ -25,8 +25,12 @@ class TennisGame1
     result
   end
 
+  def advantage_or_win?
+    @p1points>=4 or @p2points>=4
+  end
+
   def advantage_or_win
-    if (@p1points>=4 or @p2points>=4)
+    if (advantage_or_win?)
       if (point_difference.abs == 1)
         result = advantage
       else
