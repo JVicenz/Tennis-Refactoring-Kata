@@ -31,11 +31,11 @@ class TennisGame1
     return "Deuce" if duce?
     return advantage_or_win if advantage_or_win?
     return tied_result if point_difference == 0
-    to_result(@player1.points) + "-" + to_result(@player2_points)
+    to_result(@player1.points) + "-" + to_result(@player2.points)
   end
 
   def advantage_or_win?
-    @player1.points>=4 or @player2_points>=4
+    @player1.points>=4 or @player2.points>=4
   end
 
   def advantage_or_win
@@ -47,7 +47,7 @@ class TennisGame1
   end
 
   def duce?
-    (@player1.points >= 3 || @player2_points >= 3) && point_difference == 0
+    (@player1.points >= 3 || @player2.points >= 3) && point_difference == 0
   end
 
   def advantage
@@ -55,7 +55,7 @@ class TennisGame1
   end
 
   def point_difference
-    @player1.points-@player2_points
+    @player1.points-@player2.points
   end
 
   def tied_result
