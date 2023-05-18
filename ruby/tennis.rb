@@ -1,7 +1,18 @@
 
+class Player
+  def initialize(name, points)
+    @name = name
+    @points = points
+  end
+
+  attr_reader :name, :points
+end
+
 class TennisGame1
 
   def initialize(player1Name, player2Name)
+    @player1 = Player.new(player1Name, 0)
+    @player2 = Player.new(player2Name, 0)
     @player1Name = player1Name
     @player2Name = player2Name
     @player1_points = 0
