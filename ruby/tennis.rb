@@ -4,37 +4,35 @@ class TennisGame1
   def initialize(player1Name, player2Name)
     @player1Name = player1Name
     @player2Name = player2Name
-    @p1points = 0
-    @p2points = 0
+    @player1_points = 0
+    @player2_points = 0
   end
         
   def won_point(playerName)
-    playerName == @player1Name ? @p1points += 1 : @p2points += 1
+    playerName == @player1Name ? @player1_points += 1 : @player2_points += 1
   end
   
   def score
     return "Deuce" if duce?
     return advantage_or_win if advantage_or_win?
     return tied_result if point_difference == 0
-    to_result(@p1points) + "-" + to_result(@p2points)
+    to_result(@player1_points) + "-" + to_result(@player2_points)
   end
 
   def advantage_or_win?
-    @p1points>=4 or @p2points>=4
+    @player1_points>=4 or @player2_points>=4
   end
 
   def advantage_or_win
-    if (advantage_or_win?)
-      if (point_difference.abs == 1)
-        result = advantage
-      else
-        point_difference >= 2 ? "Win for #{@player1Name}" : "Win for #{@player2Name}"
-      end
+    if (point_difference.abs == 1)
+      result = advantage
+    else
+      point_difference >= 2 ? "Win for #{@player1Name}" : "Win for #{@player2Name}"
     end
   end
 
   def duce?
-    (@p1points >=3 || @p2points >=3) && point_difference == 0
+    (@player1_points >= 3 || @player2_points >= 3) && point_difference == 0
   end
 
   def advantage
@@ -42,7 +40,7 @@ class TennisGame1
   end
 
   def point_difference
-    @p1points-@p2points
+    @player1_points-@player2_points
   end
 
   def tied_result
@@ -50,7 +48,7 @@ class TennisGame1
       0 => "Love-All",
       1 => "Fifteen-All",
       2 => "Thirty-All",
-    }[@p1points]
+    }[@player1_points]
   end
 
   def to_result(point_score)
