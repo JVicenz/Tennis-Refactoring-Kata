@@ -9,7 +9,7 @@ class TennisGame1
   end
         
   def won_point(playerName)
-    playerName == 'player1' ? @p1points += 1 : @p2points += 1
+    playerName == @player1Name ? @p1points += 1 : @p2points += 1
   end
   
   def score
@@ -28,7 +28,7 @@ class TennisGame1
       if (point_difference.abs == 1)
         result = advantage
       else
-        point_difference >= 2 ? "Win for player1" : "Win for player2"
+        point_difference >= 2 ? "Win for #{@player1Name}" : "Win for #{@player2Name}"
       end
     end
   end
