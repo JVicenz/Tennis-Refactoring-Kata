@@ -5,7 +5,8 @@ class Player
     @points = points
   end
 
-  attr_reader :name, :points
+  attr_reader :name
+  attr_accessor :points
 end
 
 class TennisGame1
@@ -20,7 +21,7 @@ class TennisGame1
   end
         
   def won_point(playerName)
-    playerName == @player1Name ? @player1_points += 1 : @player2_points += 1
+    playerName == @player1.name ? @player1_points += 1 : @player2_points += 1
   end
   
   def score
@@ -38,7 +39,7 @@ class TennisGame1
     if (point_difference.abs == 1)
       result = advantage
     else
-      point_difference >= 2 ? "Win for #{@player1Name}" : "Win for #{@player2Name}"
+      point_difference >= 2 ? "Win for #{@player1.name}" : "Win for #{@player2.name}"
     end
   end
 
@@ -47,7 +48,7 @@ class TennisGame1
   end
 
   def advantage
-    result = point_difference == 1 ? "Advantage #{@player1Name}" : "Advantage #{@player2Name}"
+    result = point_difference == 1 ? "Advantage #{@player1.name}" : "Advantage #{@player2.name}"
   end
 
   def point_difference
