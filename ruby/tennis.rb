@@ -38,7 +38,7 @@ class TennisGame1
   end
 
   def advantage
-    result = point_difference == 1 ? "Advantage player1" : "Advantage player2"
+    result = point_difference == 1 ? "Advantage #{@player1Name}" : "Advantage #{@player2Name}"
   end
 
   def point_difference
