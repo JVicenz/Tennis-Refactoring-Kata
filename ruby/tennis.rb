@@ -18,12 +18,9 @@ class TennisGame1
   def initialize(player1Name, player2Name)
     @player1 = Player.new(player1Name, 0)
     @player2 = Player.new(player2Name, 0)
-    @player1_points = 0
-    @player2_points = 0
   end
         
   def won_point(playerName)
-    playerName == @player1.name ? @player1_points += 1 : @player2_points += 1
     playerName == @player1.name ? @player1.won_point : @player2.won_point
   end
   
